@@ -11,6 +11,7 @@
 
 .leaflet-container {
   height: 600px;
+  top: 15px;
 }
 
 .cluster-icon {

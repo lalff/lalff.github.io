@@ -1,11 +1,15 @@
 import "./styles.css"
 import "leaflet/dist/leaflet.css"
 
+import React, {useState} from "react";
+
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 import { Icon, divIcon, point } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
 import Header from "../../componets/Header/Header";
+import BotaoE from "../../componets/Botao/BotaoExportar";
+
 
 function Map() {
 
@@ -57,29 +61,41 @@ function Map() {
     });
   };
 
+  const [filtro, setFiltro] = useState('')
+
   return (
     <div>
       <Header/>
+
+      <input
+        type="text"
+        placeholder="Filtrar por nome"
+        value={filtro}
+        onChange={(e) => setFiltro(e.target.value)}
+      />
       
-      <MapContainer center={[-22.95541525373452, -43.29105179333064]} zoom={12}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
+        <MapContainer center={[-22.95541525373452, -43.29105179333064]} zoom={12}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
 
-        <MarkerClusterGroup
-          chunkedLoading
-          iconCreateFunction={createCustomClusterIcon}
-        >
-          {markers.map(marker => (
-            <Marker position={marker.geocode} icon={customIcon}>
-              <Popup>{marker.popUp}</Popup>
-            </Marker>
-          ))}
-        </MarkerClusterGroup>
+          <MarkerClusterGroup
+            chunkedLoading
+            iconCreateFunction={createCustomClusterIcon}
+          >
+            
+            {markers
+              .filter((marker) => marker.popUp.includes(filtro)) 
+              .map((filteredMarker) => (
+                <Marker key={filteredMarker.geocode} position={filteredMarker.geocode} icon={customIcon}>
+                  <Popup>{filteredMarker.popUp}</Popup>
+                </Marker>
+            ))}
+          </MarkerClusterGroup>
+        </MapContainer>
 
-      </MapContainer>
-
+        <BotaoE/>
     </div>
   );
 }

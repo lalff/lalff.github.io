@@ -1,3 +1,3 @@
-const LinkHome = () => <a href="/">Home</a>;
+const LinkHome = () => <a href="/">Histórioco de Dados</a>;
 
 export default LinkHome;

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import Home from './pages/HistdeDados/Home';
 import Grafico  from './pages/Grafico/Grafico';
 import Mapa from './pages/Mapa/Mapa';
-import Tabela from './pages/Tabela/Tabela1'
+import Tabela from './pages/Tabela/Tabela'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

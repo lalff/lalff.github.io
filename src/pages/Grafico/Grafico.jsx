@@ -1,57 +1,313 @@
-import React from "react";
-import { Chart } from "react-google-charts";
+import React, { Component } from "react";
+import Chart from "react-apexcharts";
 
-import LinkHome from "../../componets/Links/LinkHome";
-import LinkGrafico from "../../componets/Links/LinkGrafico";
-import LinkMapa from "../../componets/Links/LinkMapa";
-import LinkTabela from "../../componets/Links/LinkTabela";
+import Header from "../../componets/Header/Header";
+import BotaoE from "../../componets/Botao/BotaoExportar";
 
-export const data = [
-  [
-    "Horas",
-    "00:00",
-    "02:00",
-    "04:00",
-    "06:00",
-    "08:00",
-    "10:00",
-    "12:00",
-    "14:00",
-    "16:00",
-    "18:00",
-    "20:00",
-    "22:00",
-    "Velocidade do vento (Km/h)",
-    "Chuva",
-  ],
-  ["30/10/2023", 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 50, 10],
-  ["31/10/2023", 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 35, 20],
-  ["01/11/2023", 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 20, 30],
-];
+class ApexChart extends Component {
+  constructor(props) {
+    super(props);
 
-export const options = {
-  title: "Controle dos ventos",
-  vAxis: { title: "Km/h" },
-  hAxis: { title: "Dias" },
-  seriesType: "bars",
-  series: { 13: { type: "line" } },
-};
+    this.state = {
+      series: [
+        {
+          name: "sales",
+          data: [
+            {
+              x: "00",
+              y: 26,
+            },
+            {
+              x: "02",
+              y: 43,
+            },
+            {
+              x: "04",
+              y: 44,
+            },
+            {
+              x: "06",
+              y: 47,
+            },
+            {
+              x: "08",
+              y: 54,
+            },
+            {
+              x: "10",
+              y: 58,
+            },
+            {
+              x: "12",
+              y: 69,
+            },
+            {
+              x: "14",
+              y: 32,
+            },
+            {
+              x: "16",
+              y: 60,
+            },
+            {
+              x: "18",
+              y: 45,
+            },
+            {
+              x: "20",
+              y: 69,
+            },
+            {
+              x: "22",
+              y: 10,
+            },
+            {
+              x: "00",
+              y: 40,
+            },
+            {
+              x: "02",
+              y: 43,
+            },
+            {
+              x: "04",
+              y: 44,
+            },
+            {
+              x: "06",
+              y: 47,
+            },
+            {
+              x: "08",
+              y: 54,
+            },
+            {
+              x: "10",
+              y: 58,
+            },
+            {
+              x: "12",
+              y: 69,
+            },
+            {
+              x: "14",
+              y: 55,
+            },
+            {
+              x: "16",
+              y: 60,
+            },
+            {
+              x: "18",
+              y: 40,
+            },
+            {
+              x: "20",
+              y: 69,
+            },
+            {
+              x: "22",
+              y: 20,
+            },
+            {
+              x: "00",
+              y: 40,
+            },
+            {
+              x: "02",
+              y: 43,
+            },
+            {
+              x: "04",
+              y: 44,
+            },
+            {
+              x: "06",
+              y: 47,
+            },
+            {
+              x: "08",
+              y: 54,
+            },
+            {
+              x: "10",
+              y: 58,
+            },
+            {
+              x: "12",
+              y: 69,
+            },
+            {
+              x: "14",
+              y: 47,
+            },
+            {
+              x: "16",
+              y: 60,
+            },
+            {
+              x: "18",
+              y: 30,
+            },
+            {
+              x: "20",
+              y: 69,
+            },
+            {
+              x: "22",
+              y: 40,
+            },
+            {
+              x: "00",
+              y: 40,
+            },
+            {
+              x: "02",
+              y: 43,
+            },
+            {
+              x: "04",
+              y: 44,
+            },
+            {
+              x: "06",
+              y: 47,
+            },
+            {
+              x: "08",
+              y: 54,
+            },
+            {
+              x: "10",
+              y: 58,
+            },
+            {
+              x: "12",
+              y: 69,
+            },
+            {
+              x: "14",
+              y: 19,
+            },
+            {
+              x: "16",
+              y: 60,
+            },
+            {
+              x: "18",
+              y: 34,
+            },
+            {
+              x: "20",
+              y: 69,
+            },
+            {
+              x: "22",
+              y: 30,
+            },
+            {
+              x: "00",
+              y: 40,
+            },
+            {
+              x: "02",
+              y: 43,
+            },
+            {
+              x: "04",
+              y: 44,
+            },
+            {
+              x: "06",
+              y: 47,
+            },
+            {
+              x: "08",
+              y: 54,
+            },
+            {
+              x: "10",
+              y: 58,
+            },
+            {
+              x: "12",
+              y: 59,
+            },
+            {
+              x: "14",
+              y: 32,
+            },
+            {
+              x: "16",
+              y: 60,
+            },
+            {
+              x: "18",
+              y: 20,
+            },
+            {
+              x: "20",
+              y: 69,
+            },
+            {
+              x: "22",
+              y: 20,
+            },
+          ],
+        },
+      ],
+      options: {
+        chart: {
+          type: "bar",
+          height: 50,
+        },
+        xaxis: {
+          type: "category",
+          labels: {
+            
+          },
+          group: {
+            style: {
+              fontSize: "12px",
+              fontWeight: 700,
+            },
+            groups: [
+              { title: "01/11/2023", cols: 12 },
+              { title: "02/11/2023", cols: 12 },
+              { title: "03/11/2023", cols: 12 },
+              { title: "04/11/2023", cols: 12 },
+              { title: "05/11/2023", cols: 12 },
+            ],
+          },
+        },
+        title: {
+          text: "Controle dos ventos (Km/h)",
+        },
+        tooltip: {
+          x: {
+            
+          },
+        },
+      },
+    };
+  }
 
-export default function App() {
-  return (
-    <div>
-      <LinkHome/>
-      <LinkGrafico/>
-      <LinkMapa/>
-      <LinkTabela/>
+  render() {
+    return (
+      <div id="chart">
+        <Header/>
 
-      <Chart
-        chartType="ComboChart"
-        width="800px"
-        height="600px"
-        data={data}
-        options={options}
-      />   
-    </div>
-  );
-};
+        <Chart
+          options={this.state.options}
+          series={this.state.series}
+          type="bar"
+          height={380}
+        />
+
+        <BotaoE/>
+      </div>
+    );
+  }
+}
+
+export default ApexChart;

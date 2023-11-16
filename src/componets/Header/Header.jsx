@@ -1,16 +1,20 @@
-import React from "react";
-import {Cabeçalho, Links, ListaLinks, DesignLinks, Imagem} from "./style";
+import React,  { useState } from "react";
+import {Cabeçalho, Links, ListaLinks, DesignLinks} from "./style";
+import Logo from "./Logo";
 
 import LinkGrafico from "../Links/LinkGrafico";
 import LinkHome from "../Links/LinkHome";
 import LinkMapa from "../Links/LinkMapa";
 import LinkTabela from "../Links/LinkTabela";
 
-export default function Header () {
+const Header = () => {
 
   return (
     <div>
+      <br></br>
       <Cabeçalho>
+        <Logo/>
+        <br></br>
         <Links>
           <ListaLinks>
             <DesignLinks><LinkHome/></DesignLinks>
@@ -29,3 +33,5 @@ export default function Header () {
     </div>
   );
 };
+
+export default Header;

@@ -4,7 +4,7 @@ const Cabeçalho = styled.header`
   position: relative;
   width: 80%;
   margin: 0 auto;
-  background-color: #000;
+  background-color: #FFF;
 `;
 
 const Links = styled.nav`
@@ -20,14 +20,9 @@ const ListaLinks = styled.li`
 `;
 
 const DesignLinks = styled.a`
-  text-decoration: none;
   font-weight: bold;
   font-size: 18px;
+  text-decoration: none;
 `;
 
-const Imagem = styled.img`
-  top: 15px;
-}
-`;
-
-export {Cabeçalho, Links, Imagem, ListaLinks, DesignLinks};
+export {Cabeçalho, Links, ListaLinks, DesignLinks};
