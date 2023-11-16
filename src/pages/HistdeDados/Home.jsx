@@ -1,6 +1,7 @@
-import React from "react";
+import React,  { useState } from "react";
 
 import Header from "../../componets/Header/Header";
+import Footer from "../../componets/Footer/Footer";
 
 import {Caixa} from "./style"
 import BotaoP from "../../componets/Botao/BotaoPesquisar";
@@ -10,8 +11,8 @@ const Home = () => {
   return (
     <div>
       <Header/>
-
       <Caixa>
+      <br></br><br></br>
         <label> Início: 
           <input
             type="date"
@@ -45,7 +46,7 @@ const Home = () => {
           />
         </label>
 
-        <label><strong> ou</strong> Ponto de monitoramento: 
+        <label><strong> ou</strong> <p>Ponto de monitoramento: </p>
           <input
             type="text"
           />
@@ -59,6 +60,7 @@ const Home = () => {
       </Caixa>  
 
       <BotaoP/>
+      <Footer/>
 
     </div>
   );

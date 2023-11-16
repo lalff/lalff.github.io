@@ -1,4 +1,5 @@
 import {styled} from "styled-components"
+import { Link } from "react-router-dom";
 
 const App = styled.div`
   text-align: center;
@@ -13,7 +14,7 @@ const AppBody = styled.div`
   align-items: center;
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
   padding: 10px 16px;
   font-size: 14px;
   background-color: transparent;
@@ -22,6 +23,7 @@ const Button = styled.button`
   color: #466C8C;
   font-weight: bold;
   transition: ease-in 0.3s;
+  text-decoration: none;
 
   &:hover {
     backgroundColor: '#466C8C';

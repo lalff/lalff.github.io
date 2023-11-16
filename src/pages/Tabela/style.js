@@ -14,12 +14,24 @@ const StyledTable = styled.table`
   td {
   padding: 5px;
   text-align: center;
+  @media screen and (min-width:280px) and (max-width:1080px) {
+  
+    padding: 1px;
+    
+  }
   } 
 
   thead {
   th {
   background-color: lightgray;
   }
+  }
+  @media screen and (min-width:280px) and (max-width:1080px) {
+  
+    font-size: 5px;
+    justify-content: center;
+    
+    
   }
 `;
 

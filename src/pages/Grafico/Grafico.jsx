@@ -3,6 +3,22 @@ import Chart from "react-apexcharts";
 
 import Header from "../../componets/Header/Header";
 import BotaoE from "../../componets/Botao/BotaoExportar";
+import Footer from "../../componets/Footer/Footer";
+
+const Grafico = () => {
+
+  return (
+    <div>
+      <div id="chart">
+        <Header/>
+        <br/>
+	<ApexChart/>
+        <BotaoE/>
+      <Footer/>
+      </div>
+    </div>
+  );
+};
 
 class ApexChart extends Component {
   constructor(props) {
@@ -294,20 +310,14 @@ class ApexChart extends Component {
 
   render() {
     return (
-      <div id="chart">
-        <Header/>
-
         <Chart
           options={this.state.options}
           series={this.state.series}
           type="bar"
           height={380}
         />
-
-        <BotaoE/>
-      </div>
     );
-  }
-}
+  }}
 
-export default ApexChart;
+
+export { Grafico, ApexChart }

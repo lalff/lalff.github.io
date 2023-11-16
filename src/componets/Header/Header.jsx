@@ -1,32 +1,36 @@
 import React,  { useState } from "react";
+
+
 import {Cabeçalho, Links, ListaLinks, DesignLinks} from "./style";
 import Logo from "./Logo";
 
-import LinkGrafico from "../Links/LinkGrafico";
-import LinkHome from "../Links/LinkHome";
-import LinkMapa from "../Links/LinkMapa";
-import LinkTabela from "../Links/LinkTabela";
+// import LinkGrafico from "../Links/LinkGrafico";
+// import LinkHome from "../Links/LinkHome";
+// import LinkMapa from "../Links/LinkMapa";
+// import LinkTabela from "../Links/LinkTabela";
+
+
 
 const Header = () => {
+
 
   return (
     <div>
       <br></br>
       <Cabeçalho>
-        <Logo/>
-        <br></br>
+        <Logo/>  
         <Links>
           <ListaLinks>
-            <DesignLinks><LinkHome/></DesignLinks>
+            <DesignLinks to={`/`} activeClassName="active">Home</DesignLinks>
           </ListaLinks>
           <ListaLinks>
-            <DesignLinks><LinkGrafico/></DesignLinks>
+            <DesignLinks to={`/tabela`} activeClassName="active">Tabela</DesignLinks>
           </ListaLinks>
           <ListaLinks>
-            <DesignLinks><LinkMapa/></DesignLinks>
+            <DesignLinks to={`/mapa`} activeClassName="active">Mapa</DesignLinks>
           </ListaLinks>
           <ListaLinks>
-            <DesignLinks><LinkTabela/></DesignLinks>
+            <DesignLinks to={`/grafico`} activeClassName="active">Grafico</DesignLinks>
           </ListaLinks>
         </Links>
       </Cabeçalho>

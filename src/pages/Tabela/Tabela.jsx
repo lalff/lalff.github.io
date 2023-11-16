@@ -2,93 +2,529 @@ import React, {useState} from "react";
 
 import {StyledTable, TableRow, TableHeader} from "./style"
 
+import styled from "styled-components";
+
 import { data } from "./dados";
 
 import Header from "../../componets/Header/Header";
 import BotaoE from "../../componets/Botao/BotaoExportar";
+import Footer from "../../componets/Footer/Footer";
 
-const Table = () => {
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const filteredData = data.filter((item) => {
+const HiddenElement = styled.div`
+    visibility: hidden;
+`;
+
+
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @media screen and (min-width:280px) and (max-width:1080px) {
+	    font-size: 5px;
+	    justify-content: center;
+    }
+`;
+
+
+
+const Caixa = styled.div`
+    width: 100%;
+    max-width: 414px;
+    background-color: #ccc;
+    padding: 10px;
+    border: 1px solid #999;
+    margin: 10px 0;
+    line-height: 1; 
+    /* Define a altura da linha para remover o espa\u00e7o entre as caixas */
+
+`;
+
+
+
+const Linha = styled.hr`
+    border: none;
+    border-top: 2px solid #000000;
+    margin: 10px 0;
+    
+    @media screen and (min-width:280px) and (max-width:1080px) {
+	    font-size: 5px;
+	    justify-content: center;
+    }
+  
+`;
+
+
+
+const Texto = styled.p`
+    margin: 0;
+    padding: 1px;
+    white-space: pre;
+    
+    @media screen and (min-width:280px) and (max-width:1080px) {
+	    font-size: 15px;
+	    justify-content: center;
+    }
+`;
+
+
+const ComponenteTabela = ({className}) => {
     return (
-      item.id.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  });
-  
-
-return (
-  <div>
-    <input
-        type="text"
-        placeholder="Pesquisar..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-    <StyledTable>
-      <thead>
-        <TableRow>
-          <TableHeader colSpan="15">
-            Registros da estação - Vidigal
-          </TableHeader>
-        </TableRow>
-        <tr>
-          <th colSpan="15">Chuva(i)</th>
-        </tr>
-        <tr>
-          <th rowSpan="2">HORA DA LEITURA</th>
-          <th>05min</th>
-          <th>10min</th>
-          <th>15min</th>
-          <th>30min</th>
-          <th>1hora</th>
-          <th>2horas</th>
-          <th>3horas</th>
-          <th>4horas</th>
-          <th>6horas</th>
-          <th>12horas</th>
-          <th>24horas</th>
-          <th>96horas</th>
-          <th>Mensal</th>
-          <th>Tx-1h</th>
-        </tr>
-      </thead>
-      <tbody>
-        {filteredData.map((item) => (
-          <TableRow key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.name}</td>
-            <td>{item.description}</td>
-            <td>{item["15min"]}</td>
-            <td>{item["30min"]}</td>
-            <td>{item["1h"]}</td>
-            <td>{item["2h"]}</td>
-            <td>{item["3h"]}</td>
-            <td>{item["4h"]}</td>
-            <td>{item["6h"]}</td>
-            <td>{item["12h"]}</td>
-            <td>{item["24h"]}</td>
-            <td>{item["96h"]}</td>
-            <td>{item["Mensal"]}</td>
-            <td>{item["Tx-1h"]}</td>
-          </TableRow>
-        ))}
-      </tbody>
-    </StyledTable>
-  </div>
-  
-  );
-};
-
-export default function App() {
-
-return (
     <div>
-      <Header/>
-      
-      <Table/>
+        <Container>
+            <>
+                <Caixa>
+                    <Texto className={className}> REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto >
+                    <Texto className={className}>10/10/2023
+                        - 23:50 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 12,8 18,6 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 23:55 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 8,6 19,8 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:00 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 0,4 0,4 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:05 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 31,6 45,2 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:10 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 15,6 18 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:15 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 18,8 19,8 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:20 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 9,2 19,4 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:25 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 22 25,8 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:30 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 31,4 34,4 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:35 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 30,6 33,2 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:40 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 74,2 78,4 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:45 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 12,6 20,6 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:50 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 17,8 30 0,0
+                    </Texto>
+                </Caixa>
+                <Caixa
+                    style={{
+                        marginTop: "-10px"
+                    }}>
+                    <Texto className={className}>REGISTROS
+                        DA ESTAÇÃO - BARRA DA TIJUCA
+                    </Texto>
+                    <Texto className={className}>10/10/2023
+                        - 00:55 - Chuva(i)
+                    </Texto>
+                    <div>
+                        <HiddenElement>
+                            <p></p>
+                        </HiddenElement>
+                    </div>
+                    <Texto className={className}>LEITURA
+                        05min 10min 15min 30min 1h 2h 3h
+                    </Texto>
+                    <Texto className={className}>
+                        0,0 0,0 0,0 0,0 0,0 0,0 0,0
+                    </Texto>
+                    <Linha
+                    />
+                    { }
+                    <Texto className={className}>4h
+                        6h 12h 24h 96h Mensal Tx-1h
+                    </Texto>
+                    <Texto className={className}>0,0
+                        0,0 0,0 0,0 4,8 12,6 0,0
+                    </Texto>
+                </Caixa>
+            </>
+        </Container>
+        </div>
+    );
 
-      <BotaoE/>
-    </div>
-  );
 };
+
+const TabelaPage = () => {
+	return (
+	<div>
+      <Header/>
+      <br></br><br></br>
+      <ComponenteTabela/>
+      <BotaoE/>
+      <Footer/>
+      </div>
+	)
+}
+
+
+
+export {TabelaPage, ComponenteTabela};

@@ -1,16 +1,14 @@
-import "./styles.css"
-import "leaflet/dist/leaflet.css"
-
 import React, {useState} from "react";
 
-import { Marker, TileLayer, Popup } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import { Icon, divIcon, point } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
+import {Container} from "./style.js";
+import {lContainer} from "./style.js";
 
 import Header from "../../componets/Header/Header";
 import BotaoE from "../../componets/Botao/BotaoExportar";
 import Footer from "../../componets/Footer/Footer";
-import { MyMap } from "./style.js"
 
 const customIcon = new Icon({
     iconUrl: require("./marcadores/placeholder.png"),
@@ -95,17 +93,12 @@ function Map() {
 
   const [filtro, setFiltro] = useState('')
 
- return (
+  return (
     <div>
       <Header/>
       <br/>
+      <Container>
       <input
-        type="text"
-        placeholder="Filtrar por nome"
-        value={filtro}
-        onChange={(e) => setFiltro(e.target.value)}
-      />
-        <input
         type="text"
         placeholder="Filtrar por nome"
         value={filtro}
@@ -113,11 +106,11 @@ function Map() {
       />
       
 	<Mapa/>
-
         <BotaoE/>
+      </Container>
       <Footer/>
     </div>
   );
 }
 
-export { Map, Mapa};
+export { Map, Mapa };
